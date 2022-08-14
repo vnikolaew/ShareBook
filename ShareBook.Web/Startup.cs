@@ -3,6 +3,7 @@ using ShareBook.Infrastructure;
 using ShareBook.Web.Extensions;
 
 namespace ShareBook.Web;
+
 public class Startup
 {
 	public Startup(IConfiguration configuration)

@@ -1,6 +1,7 @@
 ﻿using ShareBook.Web.Extensions;
 
 namespace ShareBook.Web;
+
 public class Program
 {
 	public static void Main(string[] args)
