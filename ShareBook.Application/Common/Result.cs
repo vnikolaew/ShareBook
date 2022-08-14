@@ -1,4 +1,5 @@
 ﻿namespace ShareBook.Application.Common;
+
 public class Result
 {
   private readonly List<string> _errors;

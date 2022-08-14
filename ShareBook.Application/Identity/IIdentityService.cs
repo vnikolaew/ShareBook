@@ -4,6 +4,7 @@ using ShareBook.Application.Identity.Queries.Authenticate;
 using ShareBook.Domain.Models.User;
 
 namespace ShareBook.Application.Identity;
+
 public interface IIdentityService
 {
   Task<AuthenticationResult> SignUpAsync(SignUpRequestModel requestModel);
