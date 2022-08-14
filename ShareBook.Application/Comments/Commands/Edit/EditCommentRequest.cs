@@ -27,20 +27,20 @@ public class EditCommentRequest : EntityCommand<Guid>, IRequest<Result>
 			var comment = await _comments.FindAsync(request.Id, cancellationToken);
 			if (comment is null)
 			{
-				return Result.Failure(new []{ "Requested comment does not exist. "});
+				return "Requested comment does not exist. ";
 			}
 			
 			if (comment.Author.Id != _currentUser.UserId)
 			{
-				return Result.Failure(new []{ "You do not own the requested comment."});
+				return "You do not own the requested comment.";
 			}
 			
 			comment.EditContent(request.Content);
 			var result = await _comments.SaveAsync(comment, cancellationToken);
-			
-			return result is not null
-				? Result.Success
-				: Result.Failure(new[] {"Could not save the requested comment."});
+
+			return result is null
+				? "Could not save the requested comment."
+					: Result.Success;
 		}
 	}
 }

@@ -36,13 +36,13 @@ public class CreateCommentRequest : EntityCommand<Guid>, IRequest<Result>
 			var post = await _postRepository.FindAsync(request.Id, cancellationToken);
 			if (post is null)
 			{
-				return Result.Failure(new []{ "Requested post does not exist."});
+				return "Requested post does not exist.";
 			}
 			
 			var comment = await _comments.SaveAsync(new Comment(user, request.Content, post), cancellationToken);
-			return comment is { }
-				? Result.Success
-				: Result.Failure(new[] {"Could not save the requested comment."});
+			return comment is null
+				? "Could not save the requested comment."
+					: Result.Success;
 		}
 	}
 
