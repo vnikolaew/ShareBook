@@ -1,4 +1,5 @@
 ﻿namespace ShareBook.Web.Extensions;
+
 public static class EndpointRouteBuilderExtensions
 {
 	public static IEndpointRouteBuilder MapFallbackRoute(
