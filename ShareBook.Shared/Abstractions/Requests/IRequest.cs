@@ -1,4 +1,5 @@
 ﻿namespace ShareBook.Shared.Abstractions.Requests;
+
 public interface IRequest
 {
 }
