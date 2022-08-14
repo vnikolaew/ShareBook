@@ -28,7 +28,7 @@ public class EditProfilePhotoRequest : EntityCommand<Guid>, IRequest<Result>
 				.SaveProfileMediaAsync(_currentUser.UserId, request.WithId(Guid.NewGuid()));
 
 			return result
-				? Result.Failure(new[] { "Photo upload was unsuccessful." })
+				? "Photo upload was unsuccessful."
 				: Result.Success;
 		}
 	}

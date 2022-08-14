@@ -22,11 +22,9 @@ public class GetPostDetailsRequest : EntityCommand<Guid>, IRequest<Result<PostDe
 		public async Task<Result<PostDetailsOutputModel>> Handle(GetPostDetailsRequest request, CancellationToken cancellationToken = default)
 		{
 			var post = await _postService.Details(request.Id);
-			return post is not null
-				? Result<PostDetailsOutputModel>
-					.SuccessWith(_mapper.Map<PostDetailsOutputModel>(post))
-				: Result<PostDetailsOutputModel>
-					.Failure(new[] {"Requested post does not exist. "});
+			return post is null
+				? "Requested post does not exist. "
+				: _mapper.Map<PostDetailsOutputModel>(post);
 		}
 	}
 

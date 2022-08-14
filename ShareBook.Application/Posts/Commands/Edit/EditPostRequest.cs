@@ -24,9 +24,9 @@ public class EditPostRequest : EntityCommand<Guid>, IRequest<Result>
 		{
 			var post = await _postService.Find(request.Id);
 
-			if (post is null || post?.Author.Id != _currentUser.UserId)
+			if (post is null || post.Author.Id != _currentUser.UserId)
 			{
-				return Result.Failure(new []{ "Post does not exist or current user is not an owner of the post. "});
+				return "Post does not exist or current user is not an owner of the post. ";
 			}
 			
 			post.EditContent(request.Content);
