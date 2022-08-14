@@ -29,11 +29,11 @@ public class GetMyFollowersRequest : IRequest<Result<FollowersOutputModel>>
 			CancellationToken cancellationToken = default)
 		{
 			var follows = await _follows.GetFollowers(_currentUser.UserId);
-			return Result<FollowersOutputModel>.SuccessWith(new FollowersOutputModel
+			return new FollowersOutputModel
 			{
 				Count = follows.Count(),
 				Followers = _mapper.Map<IEnumerable<FollowerOutputModel>>(follows)
-			});
+			};
 		}
 	}
 

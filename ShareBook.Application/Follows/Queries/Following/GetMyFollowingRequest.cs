@@ -26,11 +26,11 @@ public class GetMyFollowingRequest : IRequest<Result<FollowingOutputModel>>
 		public async Task<Result<FollowingOutputModel>> Handle(GetMyFollowingRequest request, CancellationToken cancellationToken = default)
 		{
 			var follows = await _follows.GetFollowing(_currentUser.UserId);
-			return Result<FollowingOutputModel>.SuccessWith(new FollowingOutputModel
+			return new FollowingOutputModel
 			{
 				Count = follows.Count(),
 				Following = _mapper.Map<IEnumerable<FolloweeOutputModel>>(follows)
-			});
+			};
 		}
 	}
 
