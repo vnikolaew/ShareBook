@@ -24,14 +24,12 @@ public class GetAllByPostRequest : EntityCommand<Guid>, IRequest<Result<LikesOut
 			CancellationToken cancellationToken = default)
 		{
 			var likes = await _likes.GetAllByPostId(request.Id, cancellationToken);
-			return likes is not null
-				? Result<LikesOutputModel>.SuccessWith(
-					new LikesOutputModel
-					{
-						Likes = _mapper.Map<IEnumerable<LikeOutputModel>>(likes)
-					})
-				: Result<LikesOutputModel>
-					.Failure(new[] {"Requested post does not exist."});
+			return likes is null
+				? "Requested post does not exist."
+				: new LikesOutputModel
+				{
+					Likes = _mapper.Map<IEnumerable<LikeOutputModel>>(likes)
+				};
 		}
 	}
 }

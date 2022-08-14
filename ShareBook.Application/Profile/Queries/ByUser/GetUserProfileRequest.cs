@@ -25,11 +25,9 @@ public class GetUserProfileRequest : EntityCommand<Guid>, IRequest<Result<Profil
 			CancellationToken cancellationToken = default)
 		{
 			var profile = await _profiles.GetByUserId(request.Id, cancellationToken);
-			if (profile is null)
-			{
-				return Result<ProfileOutputModel>.Failure(new []{"User does not exist. "});
-			}
-			return _mapper.Map<ProfileOutputModel>(profile);
+			return profile is null
+				? "User does not exist. "
+					: _mapper.Map<ProfileOutputModel>(profile);
 		}
 	}
 }
