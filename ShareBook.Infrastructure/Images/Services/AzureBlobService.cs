@@ -10,15 +10,13 @@ public class AzureBlobService : IFileStorageUploadService
 {
 	private readonly AzureBlobStorageSettings _settings;
 	private readonly BlobContainerClient _containerClient;
-	
-	private const string ContainerName = "images";
 	private const string DefaultCacheControl = "max-age=3600, public";
 
 	public AzureBlobService(AzureBlobStorageSettings settings)
 	{
 		_settings = settings;
 		_containerClient = new BlobServiceClient(settings.ConnectionString)
-		.GetBlobContainerClient(ContainerName);
+			.GetBlobContainerClient(settings.ContainerName);
 	}
 	
 	public async Task<bool> UploadFileAsync(string absoluteFilePath, string blobName)

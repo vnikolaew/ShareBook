@@ -5,6 +5,8 @@ public class AzureBlobStorageSettings
 	public string AccountKey { get; set; }
 	public string EndpointSuffix { get; set; }	
 	
+	public string ContainerName { get; set; }	
+	
 	public string ConnectionString
 		=> $"DefaultEndpointsProtocol=https;{nameof(AccountName)}={AccountName};{nameof(AccountKey)}={AccountKey};{nameof(EndpointSuffix)}={EndpointSuffix}";
 }
