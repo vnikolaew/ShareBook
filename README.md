@@ -29,11 +29,24 @@ This is a simple Social Media Web App built with the latest ASP.NET Core 7.0 tha
 [fluentvalidation]: www.fluent-validation.com
 [neo4j-model-schema]: https://github.com/vnikolaew/ShareBook/blob/main/neo4j-model-schema.jpg?raw=true
 [download neo4j]: https://neo4j.com/download-center
+[appsettings.development.json]: https://github.com/vnikolaew/ShareBook/blob/main/ShareBook.Web/appsettings.Development.json
+[here]: https://github.com/vnikolaew/ShareBook/blob/main/docker-compose.sample.yml
+[mit license]: https://github.com/vnikolaew/ShareBook/blob/main/LICENSE.md
 
 # Getting Started
 
 Before running the application, there are some prerequisites needed. Make sure you first have:
 
 -  installed .NET 6.0+ on your machine
--  Neo4J 4.4+ Graph database installed (download link - [Download Neo4J])
+-  Neo4J 4.4+ Graph database installed (download link - [Download Neo4J]) and have a locally running instance (prefferably using the Bolt protocol)
 -  have setup an Microsoft Azure Blob Storage Account
+
+If you're running the application locally, make sure you configure all the application's settings like Azure Blob and Neo4J configurations. You can achieve that by using the appsettings.json config file (see [appsettings.Development.json] for further details)
+
+## Running in a Docker environment
+
+The second option is by running the application and database services in Docker containers using the docker-compose tool. Make sure you have installed Docker (and docker-compose). You can find an example docker-compose.yml file [here] in the repository root and see how you can configure it.
+
+# License
+
+This project is licensed with the [MIT License].
