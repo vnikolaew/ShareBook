@@ -23,6 +23,7 @@ x86/
 
 **/*.json
 !**/appsettings.json
+!**/appsettings.Development.json
 
 # .NET
 project.lock.json
