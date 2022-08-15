@@ -1,4 +1,4 @@
-# Social Media Web Api built with ASP.NET Core and Neo4J.
+# 📱Social Media Web Api built with ASP.NET Core and Neo4J.
 
 This is a simple Social Media Web App built with the latest ASP.NET Core 7.0 that uses a Neo4J Graph Database as its primary data store as well as a Azure Blob Storage for storing media assets (like photos, etc). Some of its features include:
 
@@ -28,5 +28,12 @@ This is a simple Social Media Web App built with the latest ASP.NET Core 7.0 tha
 [neo4jclient]: https://github.com/DotNet4Neo4j/Neo4jClient
 [fluentvalidation]: www.fluent-validation.com
 [neo4j-model-schema]: https://github.com/vnikolaew/ShareBook/blob/main/neo4j-model-schema.jpg?raw=true
+[download neo4j]: https://neo4j.com/download-center
 
 # Getting Started
+
+Before running the application, there are some prerequisites needed. Make sure you first have:
+
+-  installed .NET 6.0+ on your machine
+-  Neo4J 4.4+ Graph database installed (download link - [Download Neo4J])
+-  have setup an Microsoft Azure Blob Storage Account
